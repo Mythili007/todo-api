@@ -11,7 +11,6 @@ if (env === 'production') {
 		'dialect': 'sqlite',
 		'storage': __dirname + '/data/dev-todo-api.sqlite'
 	});
-
 }
 
 var db = {};
