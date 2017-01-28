@@ -10,6 +10,7 @@ var PORT = process.env.PORT || 3000;
 var todos = [];
 var todoNextId = 1;
 
+
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
@@ -45,7 +46,7 @@ app.get('/todos', middleware.requireAuthentication, function(req, res) {
 });
 
 // GET /todos/:id
-app.get('/todos/:id',middleware.requireAuthentication, function(req, res) {
+app.get('/todos/:id', middleware.requireAuthentication, function(req, res) {
 	var todoId = parseInt(req.params.id, 10);
 
 	db.todo.findOne({
@@ -65,7 +66,7 @@ app.get('/todos/:id',middleware.requireAuthentication, function(req, res) {
 });
 
 // POST /todos
-app.post('/todos',middleware.requireAuthentication, function(req, res) {
+app.post('/todos', middleware.requireAuthentication, function(req, res) {
 	var body = _.pick(req.body, 'description', 'completed');
 
 	db.todo.create(body).then(function(todo) {
@@ -80,7 +81,7 @@ app.post('/todos',middleware.requireAuthentication, function(req, res) {
 });
 
 // DELETE /todos/:id
-app.delete('/todos/:id',middleware.requireAuthentication, function(req, res) {
+app.delete('/todos/:id', middleware.requireAuthentication, function(req, res) {
 	var todoId = parseInt(req.params.id, 10);
 
 	db.todo.destroy({
@@ -102,7 +103,7 @@ app.delete('/todos/:id',middleware.requireAuthentication, function(req, res) {
 });
 
 // PUT /todos/:id
-app.put('/todos/:id',middleware.requireAuthentication, function(req, res) {
+app.put('/todos/:id', middleware.requireAuthentication, function(req, res) {
 	var todoId = parseInt(req.params.id, 10);
 	var body = _.pick(req.body, 'description', 'completed');
 	var attributes = {};
