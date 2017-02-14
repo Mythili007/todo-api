@@ -11,7 +11,7 @@ var todos = [];
 var todoNextId = 1;
 
 app.use(bodyParser.json());
-
+console.log("ABC");
 app.get('/', function(req, res) {
 	res.send('Todo API Root');
 });
